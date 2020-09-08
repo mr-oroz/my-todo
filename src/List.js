@@ -1,32 +1,31 @@
-import React, {Component} from 'react';
-import Item from './item';
+import React, {Component} from "react";
+import Item from "./item";
 
 class List extends Component {
     state = {
         data: [
-            "Hit the gym",
-            'Pay bills',
-            'Meet George',
-            'Buy eggs',
-            'Read a book',
-            'Organize office'
+            {id: 1, checked: false, label: "Hit the gym"},
+            {id: 2, checked: true, label: 'Pay bills'},
+            {id: 3, checked: false, label: 'Meet George'},
+            {id: 4, checked: true, label: 'Buy eggs'},
+            {id: 5, checked: false, label: 'Read a book'},
+            {id: 6, checked: true, label: 'Organize office'}
         ]
     }
+
     render() {
         return (
             <ul id="myUL">
                 {
                     this.state.data.map(
-                        (item) => {
-                            return <Item label={item}/>
+                        ({id, label, checked}) => {
+                            return <Item key={id} label={label} checked={checked}/>
                         }
                     )
                 }
-                </ul>
-
+            </ul>
         )
     }
-
-
 }
+
 export default List;
